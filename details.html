@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顧客進捗管理 - 詳細</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="custom-dropdown.css">
+</head>
+<body>
+    <div id="zoom-container">
+        <label for="zoom-slider">倍率:</label>
+        <input type="range" id="zoom-slider" min="50" max="150" value="100">
+        <span id="zoom-value">100%</span>
+    </div>
+    <div class="container">
+        <div class="sticky-header-area">
+            <h1>顧客進捗管理 - 詳細 <span id="user-id-display" style="font-size: 0.6em; color: #666; font-weight: normal;"></span></h1>
+            <div class="nav-links">
+                <a href="index.html" id="back-to-main">メイン画面に戻る</a>
+                <label for="year-filter">年度を選択してください:</label>
+                <div class="custom-select-wrapper">
+                    <div class="custom-select-trigger"></div>
+                    <div class="custom-options"></div>
+                    <select id="year-filter" class="custom-dropdown" style="display: none;">
+                        <!-- JavaScriptでオプションを生成 -->
+                    </select>
+                </div>
+                            <button id="edit-tasks-button">項目の変更</button>
+                <button id="finalize-year-button">この年度の項目を確定</button>
+                <span id="finalized-status" style="display: none; color: green; font-weight: bold; margin-left: 10px;"></span>
+            </div>
+
+            <!-- Client Info and Save Button Container -->
+            <div class="client-header-container">
+                <!-- クライアント基本情報表示エリア -->
+                <div id="client-info-area">
+                    <!-- JavaScriptでテーブルを生成 -->
+                </div>
+                <button id="save-changes-button" disabled>変更を保存</button>
+            </div>
+        </div>
+
+        <!-- タスク編集モーダル -->
+        <div id="task-edit-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>タスク項目の編集</h2>
+                <div id="task-list-container">
+                    <!-- タスク項目がここに動的に追加される -->
+                </div>
+                <div class="add-task-section">
+                    <input type="text" id="new-task-input" placeholder="新しい項目を追加">
+                    <button id="add-task-button">追加</button>
+                </div>
+                <div class="modal-buttons">
+                    <button id="save-tasks-button">保存</button>
+                    <button id="cancel-tasks-button">キャンセル</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- タスク・チェックボックス表示エリア -->
+        <div class="details-table-wrapper">
+            <table id="details-table" class="details-table">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- New table for URL/Memo -->
+        <h2 style="margin-top: 30px;">URL・メモ</h2>
+        <div class="details-table-wrapper">
+            <table id="notes-table" class="details-table">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Save Status Indicator -->
+        <div id="save-status"></div>
+    </div>
+
+    
+    <script src="custom-dropdown.js"></script>
+    <script src="config.js"></script>
+    <script src="details.js"></script>
+</body>
+</html>
